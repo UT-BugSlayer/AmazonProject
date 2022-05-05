@@ -1,10 +1,5 @@
-package com.example.AmazonProject.entity;
+package com.example.AmazonProject;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 public class Podcast {
 
 	private String name;
@@ -17,6 +12,16 @@ public class Podcast {
 	// define constructor
 	public Podcast() {
 
+	}
+
+	public Podcast(String name, String description, String source, String audio, String image, String title) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.source = source;
+		this.audio = audio;
+		this.image = image;
+		this.title = title;
 	}
 
 	public String getName() {
