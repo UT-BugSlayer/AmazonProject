@@ -32,4 +32,12 @@ public class PodcastService {
 		return podcasts;
 	}
 
+	public Podcast getPodcast(String name) {
+		return podcasts.stream().filter(p -> p.getName().equals(name)).findFirst().get();
+	}
+
+	public void addPodcast(Podcast podcast) {
+		podcasts.add(podcast);
+	}
+
 }

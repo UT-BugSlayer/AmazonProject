@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,14 +29,14 @@ public class PodcastController {
 		return podcastService.getAllPodcast();
 	}
 
-	@GetMapping("/list/name")
-	public Podcast getPodcast() {
-		return null;
+	@GetMapping("/list/{name}")
+	public Podcast getPodcast(@PathVariable String name) {
+		return podcastService.getPodcast(name);
 	}
 
-	@PostMapping("/list/name")
-	public void addPodcast() {
-
+	@PostMapping("/list")
+	public void addPodcast(@RequestBody Podcast podcast) {
+		podcastService.addPodcast(podcast);
 	}
 
 	@PutMapping("/list/name")
